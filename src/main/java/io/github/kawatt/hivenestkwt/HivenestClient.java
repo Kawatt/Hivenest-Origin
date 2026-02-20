@@ -22,7 +22,8 @@ public class HivenestClient implements ClientModInitializer {
                     registrationHelper.register(
                             new BeeArmorFeatureRenderer(
                                     (FeatureRendererContext) renderer,
-                                    context.getModelLoader()
+                                    context.getModelLoader(),
+                                    context.getModelManager()
                             )
                     );
                 }
