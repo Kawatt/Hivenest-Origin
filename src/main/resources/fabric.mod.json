@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "modid",
+  "version": "${version}",
+
+  "name": "Hivenest",
+  "description": "Apoli Addon that also adds the Hivenest origin",
+  "authors": [
+    "Kawatt!"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": "",
+    "issues": ""
+  },
+
+  "license": "MIT",
+  "icon": "assets/hivenestkwt/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.kawatt.hivenestkwt.Hivenest"
+    ],
+    "client": [
+      "io.github.kawatt.hivenestkwt.HivenestClient"
+    ],
+    "calio:ordered-resource-listener": [
+      "io.github.kawatt.hivenestkwt.Hivenest"
+    ]
+  },
+  "mixins": [
+	  "modid.mixins.json"
+  ],
+  "depends": {
+    "java": ">=17",
+    "fabricloader": ">=0.15.3",
+    "fabric-api": ">=0.91.2",
+    "minecraft": "~1.20.2",
+    "apoli": ">=2.10.0"
+  },
+  "breaks": {
+    "optifabric": "<=1.11.18",
+    "identity": "<1.14.2-beta"
+  }
+}
