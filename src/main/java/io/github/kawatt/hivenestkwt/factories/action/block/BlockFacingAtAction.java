@@ -12,8 +12,6 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.apache.commons.lang3.tuple.Triple;
 
-import static io.github.kawatt.hivenestkwt.Hivenest.LOGGER;
-
 public class BlockFacingAtAction {
     public static void action(SerializableData.Instance data, Triple<World, BlockPos, Direction> block) {
         World world = block.getLeft();

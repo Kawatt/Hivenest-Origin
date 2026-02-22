@@ -6,15 +6,10 @@ import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import io.github.kawatt.hivenestkwt.Hivenest;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BeehiveBlockEntity;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.pattern.CachedBlockPosition;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
-
-import static io.github.kawatt.hivenestkwt.Hivenest.LOGGER;
 
 public class FacingAtBlockCondition {
     public static boolean condition(SerializableData.Instance data, CachedBlockPosition cachedBlock) {

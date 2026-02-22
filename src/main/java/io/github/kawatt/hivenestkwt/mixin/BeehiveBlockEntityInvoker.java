@@ -12,5 +12,5 @@ import java.util.List;
 public interface BeehiveBlockEntityInvoker {
 
     @Invoker("tryReleaseBee")
-    public abstract List<Entity> callTryReleaseBee(BlockState state, BeehiveBlockEntity.BeeState beeState);
+    List<Entity> callTryReleaseBee(BlockState state, BeehiveBlockEntity.BeeState beeState);
 }
