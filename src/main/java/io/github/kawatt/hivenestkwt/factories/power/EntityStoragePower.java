@@ -189,9 +189,9 @@ public class EntityStoragePower extends Power {
         World world = this.entity.getWorld();
         Entity liberatedEntity = EntityType.loadEntityWithPassengers(nbtCompound, world, (entityx) -> entityx);
         if (liberatedEntity != null) {
-            if (liberatedEntity instanceof BeeEntity beeEntity) {
+            if (liberatedEntity instanceof AnimalEntity animal) {
                 //do I keep?
-                ageEntity(storedEntity.ticksInStorage, beeEntity);
+                ageEntity(storedEntity.ticksInStorage, animal);
             }
 
             //in case I need to pull the entity up

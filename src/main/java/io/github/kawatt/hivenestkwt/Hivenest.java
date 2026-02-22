@@ -1,6 +1,6 @@
 package io.github.kawatt.hivenestkwt;
 
-import io.github.kawatt.hivenestkwt.factories.ExampleTypeRegistry;
+import io.github.kawatt.hivenestkwt.factories.HivenestTypeRegistry;
 import io.github.apace100.apoli.util.IdentifierAlias;
 import io.github.apace100.calio.resource.OrderedResourceListenerInitializer;
 import io.github.apace100.calio.resource.OrderedResourceListenerManager;
@@ -18,7 +18,7 @@ public class Hivenest implements ModInitializer, OrderedResourceListenerInitiali
 	@Override
 	public void onInitialize() {
 		IdentifierAlias.addNamespaceAlias(MODID, "apoli");
-		ExampleTypeRegistry.register();
+		HivenestTypeRegistry.register();
 	}
 
 	public static Identifier identifier(String path) {

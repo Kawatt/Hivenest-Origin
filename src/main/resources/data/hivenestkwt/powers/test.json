@@ -20,6 +20,13 @@
 					}
 				}
 			]
+		},
+		"condition": {
+			"type": "apoli:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+				"type": "apoli:empty"
+			}
 		}
 	},
 	"removefrom": {
@@ -44,6 +51,16 @@
 			"compare_to": 0,
 			"comparison": ">",
 			"storage": "*:*_storage"
+		}
+	},
+	"beeexit": {
+		"type": "apoli:action_on_block_use",
+		"block_action": {
+			"type": "hivenestkwt:spawn_entity_from_beehive"
+		},
+		"hands": ["main_hand"],
+		"condition": {
+			"type": "apoli:sneaking"
 		}
 	}
 }
