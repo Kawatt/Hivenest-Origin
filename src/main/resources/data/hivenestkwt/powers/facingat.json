@@ -1,0 +1,16 @@
+{
+	"type": "apoli:action_on_block_use",
+	"entity_action": {
+		"type": "apoli:execute_command",
+		"command": "say facing!"
+	},
+	"block_action": {
+		"type": "hivenestkwt:block_facing_at",
+		"distance": -1,
+		"action": {
+			"type": "apoli:set_block",
+			"block": "minecraft:gold_block"
+		}
+	},
+	"hands": ["main_hand"]
+}

@@ -14,18 +14,25 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
+import static io.github.kawatt.hivenestkwt.Hivenest.LOGGER;
+
 public class FacingAtBlockCondition {
     public static boolean condition(SerializableData.Instance data, CachedBlockPosition cachedBlock) {
 
         BlockState state = cachedBlock.getBlockState();
 
-        if (!state.contains(Properties.FACING)) {
+        Direction facing;
+        if (state.contains(Properties.HORIZONTAL_FACING)) {
+            facing = state.get(Properties.HORIZONTAL_FACING);
+        } else if (state.contains(Properties.FACING)) {
+            facing = state.get(Properties.FACING);
+        } else {
+            //LOGGER.info("Block at {} has no facing property, skipping.", blockPos);
             return false;
         }
 
-        Direction facing = state.get(Properties.FACING);
-
-        BlockPos newPos = cachedBlock.getBlockPos().offset(facing, data.get("distance"));
+        BlockPos blockPos = cachedBlock.getBlockPos();
+        BlockPos newPos = blockPos.offset(facing, data.get("distance"));
 
         ConditionFactory<CachedBlockPosition>.Instance condition =
                 data.get("condition");
