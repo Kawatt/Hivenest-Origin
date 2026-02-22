@@ -1,8 +1,10 @@
 package io.github.kawatt.hivenestkwt.factories;
 
 import io.github.kawatt.hivenestkwt.factories.action.bientity.AddToEntityStorageAction;
+import io.github.kawatt.hivenestkwt.factories.action.block.BlockFacingAtCondition;
 import io.github.kawatt.hivenestkwt.factories.action.block.SpawnEntityFromBeehiveAction;
 import io.github.kawatt.hivenestkwt.factories.action.entity.RemoveFromEntityStorageAction;
+import io.github.kawatt.hivenestkwt.factories.condition.block.FacingAtBlockCondition;
 import io.github.kawatt.hivenestkwt.factories.condition.block.IsBeehiveCondition;
 import io.github.kawatt.hivenestkwt.factories.condition.entity.StorageSizeCondition;
 import io.github.kawatt.hivenestkwt.factories.power.EntityStoragePower;
@@ -16,6 +18,8 @@ public class HivenestTypeRegistry {
         ApoliRegistryHelper.registerEntityCondition(StorageSizeCondition.getFactory());
         ApoliRegistryHelper.registerBlockAction(SpawnEntityFromBeehiveAction.getFactory());
         ApoliRegistryHelper.registerBlockCondition(IsBeehiveCondition.getFactory());
+        ApoliRegistryHelper.registerBlockAction(BlockFacingAtCondition.getFactory());
+        ApoliRegistryHelper.registerBlockCondition(FacingAtBlockCondition.getFactory());
         ApoliRegistryHelper.registerPowerFactory(EntityStoragePower.getFactory());
     }
 
