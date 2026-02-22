@@ -38,15 +38,6 @@ public class BeeArmorFeatureRenderer extends FeatureRenderer<BeeEntity, BeeEntit
 
     @Override
     public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumer, int light, BeeEntity entity, float f, float g, float h, float j, float k, float l) {
-        /*ItemStack stack = entity.getEquippedStack(EquipmentSlot.CHEST);
-        Item item = stack.getItem();
-        this.getContextModel().copyStateTo(this.model);
-        this.model.animateModel(entity, f, g, h);
-        this.model.setAngles(entity, f, g, j, k, l);
-        Identifier location = new Identifier("minecraft",
-                "textures/models/armor/diamond_layer_1.png");
-        VertexConsumer consumer = vertexConsumer.getBuffer(RenderLayer.getEntityCutoutNoCull(location));
-        this.model.render(matrixStack, consumer, light, OverlayTexture.DEFAULT_UV, 1, 1, 1, 1);*/
 
         EquipmentSlot armorSlot = EquipmentSlot.HEAD;
         ItemStack itemStack = entity.getEquippedStack(armorSlot);
@@ -56,7 +47,6 @@ public class BeeArmorFeatureRenderer extends FeatureRenderer<BeeEntity, BeeEntit
                 this.getContextModel().copyStateTo(this.model);
                 this.model.animateModel(entity, f, g, h);
                 this.model.setAngles(entity, f, g, j, k, l);
-                //this.setVisible(model, armorSlot);
                 boolean bl = this.usesInnerModel(armorSlot);
                 if (armorItem instanceof DyeableArmorItem dyeableArmorItem) {
                     int color = dyeableArmorItem.getColor(itemStack);
@@ -86,8 +76,8 @@ public class BeeArmorFeatureRenderer extends FeatureRenderer<BeeEntity, BeeEntit
     }
 
     private Identifier getArmorTexture(ArmorItem item, boolean secondLayer, @Nullable String overlay) {
-        String var10000 = item.getMaterial().getName();
-        String string = "textures/models/armor/" + var10000 + "_layer_" + (secondLayer ? 2 : 1) + (overlay == null ? "" : "_" + overlay) + ".png";
+        String name = item.getMaterial().getName();
+        String string = "textures/models/armor/" + name + "_layer_" + (secondLayer ? 2 : 1) + (overlay == null ? "" : "_" + overlay) + ".png";
         return ARMOR_TEXTURE_CACHE.computeIfAbsent(string, Identifier::new);
     }
     private boolean usesInnerModel(EquipmentSlot slot) {

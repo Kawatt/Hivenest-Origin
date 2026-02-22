@@ -26,6 +26,10 @@ public class ApoliRegistryHelper {
         Registry.register(ApoliRegistries.ENTITY_ACTION, conditionFactory.getSerializerId(), conditionFactory);
     }
 
+    public static void registerBientityAction(ActionFactory<Pair<Entity,Entity>> conditionFactory) {
+        Registry.register(ApoliRegistries.BIENTITY_ACTION, conditionFactory.getSerializerId(), conditionFactory);
+    }
+
     public static void registerItemCondition(ConditionFactory<Pair<World, ItemStack>> conditionFactory) {
         Registry.register(ApoliRegistries.ITEM_CONDITION, conditionFactory.getSerializerId(), conditionFactory);
     }

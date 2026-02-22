@@ -1,6 +1,7 @@
 package io.github.kawatt.hivenestkwt;
 
 import io.github.kawatt.hivenestkwt.render.BeeArmorFeatureRenderer;
+import io.github.kawatt.hivenestkwt.render.BeeHeldItemFeatureRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -24,6 +25,12 @@ public class HivenestClient implements ClientModInitializer {
                                     (FeatureRendererContext) renderer,
                                     context.getModelLoader(),
                                     context.getModelManager()
+                            )
+                    );
+                    registrationHelper.register(
+                            new BeeHeldItemFeatureRenderer(
+                                    (FeatureRendererContext) renderer,
+                                    context.getHeldItemRenderer()
                             )
                     );
                 }

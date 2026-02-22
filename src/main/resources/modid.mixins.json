@@ -4,6 +4,7 @@
   "package": "io.github.kawatt.hivenestkwt.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "BeehiveBlockEntityMixin",
     "PlayerEntityMixin"
   ],
   "client": [
