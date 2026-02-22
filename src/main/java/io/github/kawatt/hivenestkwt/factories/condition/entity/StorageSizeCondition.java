@@ -1,6 +1,5 @@
 package io.github.kawatt.hivenestkwt.factories.condition.entity;
 
-import io.github.apace100.apoli.Apoli;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.PowerType;
