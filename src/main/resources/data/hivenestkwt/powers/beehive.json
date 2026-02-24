@@ -22,11 +22,22 @@
 			]
 		},
 		"condition": {
-			"type": "apoli:equipped_item",
-			"equipment_slot": "mainhand",
-			"item_condition": {
-				"type": "apoli:empty"
-			}
+			"type": "apoli:and",
+			"conditions": [
+				{
+					"type": "apoli:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "apoli:empty"
+					}
+				},
+				{
+					"type": "hivenestkwt:storage_size",
+					"compare_to": 6,
+					"comparison": "<",
+					"storage": "*:*_storage"
+				}
+			]
 		}
 	},
 	"removefrom": {
@@ -59,6 +70,21 @@
 			"type": "hivenestkwt:spawn_entity_from_beehive"
 		},
 		"hands": ["main_hand"],
+		"block_condition": {
+			"type": "apoli:and",
+			"conditions": [
+				{
+					"type": "hivenestkwt:is_beehive"
+				},
+				{
+					"type": "hivenestkwt:facing_at_block",
+					"block_condition": {
+						"type": "apoli:movement_blocking",
+						"inverted": true
+					}
+				}
+			]
+		},
 		"condition": {
 			"type": "apoli:sneaking"
 		}

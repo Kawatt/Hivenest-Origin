@@ -30,7 +30,7 @@ public class FacingAtBlockCondition {
         BlockPos newPos = blockPos.offset(facing, data.get("distance"));
 
         ConditionFactory<CachedBlockPosition>.Instance condition =
-                data.get("condition");
+                data.get("block_condition");
 
         CachedBlockPosition offsetPos = new CachedBlockPosition(
                 cachedBlock.getWorld(),
@@ -46,7 +46,7 @@ public class FacingAtBlockCondition {
         return new ConditionFactory<>(
                 Hivenest.identifier("facing_at_block"),
                 new SerializableData()
-                        .add("condition", ApoliDataTypes.BLOCK_CONDITION)
+                        .add("block_condition", ApoliDataTypes.BLOCK_CONDITION)
                         .add("distance", SerializableDataTypes.INT, 1),
                 FacingAtBlockCondition::condition
         );

@@ -27,6 +27,9 @@ public class SpawnEntityFromBeehiveAction {
         BlockEntity blockEntity = world.getBlockEntity(blockPos);
 
         if (blockEntity instanceof BeehiveBlockEntity beehive) {
+            if (beehive.hasNoBees()) {
+                return;
+            }
             List<Entity> bees = ((BeehiveBlockEntityInvoker) beehive)
                     .callTryReleaseBee(blockState, BeehiveBlockEntity.BeeState.EMERGENCY);
             for (Entity entity : bees) {

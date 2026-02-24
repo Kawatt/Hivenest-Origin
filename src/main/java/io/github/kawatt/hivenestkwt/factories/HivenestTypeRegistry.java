@@ -7,6 +7,7 @@ import io.github.kawatt.hivenestkwt.factories.action.entity.RemoveFromEntityStor
 import io.github.kawatt.hivenestkwt.factories.condition.block.FacingAtBlockCondition;
 import io.github.kawatt.hivenestkwt.factories.condition.block.IsBeehiveCondition;
 import io.github.kawatt.hivenestkwt.factories.condition.entity.StorageSizeCondition;
+import io.github.kawatt.hivenestkwt.factories.condition.item.IsHelmetCondition;
 import io.github.kawatt.hivenestkwt.factories.power.EntityStoragePower;
 import io.github.kawatt.hivenestkwt.utils.ApoliRegistryHelper;
 
@@ -20,6 +21,7 @@ public class HivenestTypeRegistry {
         ApoliRegistryHelper.registerBlockCondition(IsBeehiveCondition.getFactory());
         ApoliRegistryHelper.registerBlockAction(BlockFacingAtAction.getFactory());
         ApoliRegistryHelper.registerBlockCondition(FacingAtBlockCondition.getFactory());
+        ApoliRegistryHelper.registerItemCondition(IsHelmetCondition.getFactory());
         ApoliRegistryHelper.registerPowerFactory(EntityStoragePower.getFactory());
     }
 

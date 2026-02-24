@@ -31,7 +31,7 @@ public class BlockFacingAtAction {
 
         BlockPos newPos = blockPos.offset(facing, data.get("distance"));
 
-        ActionFactory<Triple<World, BlockPos, Direction>>.Instance action = data.get("action");
+        ActionFactory<Triple<World, BlockPos, Direction>>.Instance action = data.get("block_action");
 
         action.accept(Triple.of(world, newPos, block.getRight()));
     }
@@ -39,7 +39,7 @@ public class BlockFacingAtAction {
     public static ActionFactory<Triple<World, BlockPos, Direction>> getFactory() {
         return new ActionFactory<>(Hivenest.identifier("block_facing_at"),
                 new SerializableData()
-                        .add("action", ApoliDataTypes.BLOCK_ACTION)
+                        .add("block_action", ApoliDataTypes.BLOCK_ACTION)
                         .add("distance", SerializableDataTypes.INT, 1),
                 BlockFacingAtAction::action
         );
