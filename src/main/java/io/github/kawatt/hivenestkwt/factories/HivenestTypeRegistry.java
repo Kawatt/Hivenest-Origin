@@ -6,8 +6,9 @@ import io.github.kawatt.hivenestkwt.factories.action.block.SpawnEntityFromBeehiv
 import io.github.kawatt.hivenestkwt.factories.action.entity.RemoveFromEntityStorageAction;
 import io.github.kawatt.hivenestkwt.factories.condition.block.FacingAtBlockCondition;
 import io.github.kawatt.hivenestkwt.factories.condition.block.IsBeehiveCondition;
-import io.github.kawatt.hivenestkwt.factories.condition.entity.StorageSizeCondition;
+import io.github.kawatt.hivenestkwt.factories.condition.entity.EntityStorageSizeCondition;
 import io.github.kawatt.hivenestkwt.factories.condition.item.IsHelmetCondition;
+import io.github.kawatt.hivenestkwt.factories.condition.item.IsToolCondition;
 import io.github.kawatt.hivenestkwt.factories.power.EntityStoragePower;
 import io.github.kawatt.hivenestkwt.utils.ApoliRegistryHelper;
 
@@ -16,12 +17,13 @@ public class HivenestTypeRegistry {
     public static void register() {
         ApoliRegistryHelper.registerBientityAction(AddToEntityStorageAction.getFactory());
         ApoliRegistryHelper.registerEntityAction(RemoveFromEntityStorageAction.getFactory());
-        ApoliRegistryHelper.registerEntityCondition(StorageSizeCondition.getFactory());
+        ApoliRegistryHelper.registerEntityCondition(EntityStorageSizeCondition.getFactory());
         ApoliRegistryHelper.registerBlockAction(SpawnEntityFromBeehiveAction.getFactory());
         ApoliRegistryHelper.registerBlockCondition(IsBeehiveCondition.getFactory());
         ApoliRegistryHelper.registerBlockAction(BlockFacingAtAction.getFactory());
         ApoliRegistryHelper.registerBlockCondition(FacingAtBlockCondition.getFactory());
         ApoliRegistryHelper.registerItemCondition(IsHelmetCondition.getFactory());
+        ApoliRegistryHelper.registerItemCondition(IsToolCondition.getFactory());
         ApoliRegistryHelper.registerPowerFactory(EntityStoragePower.getFactory());
     }
 

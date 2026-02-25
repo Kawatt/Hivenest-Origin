@@ -32,7 +32,7 @@
 					}
 				},
 				{
-					"type": "hivenestkwt:storage_size",
+					"type": "hivenestkwt:entity_storage_size",
 					"compare_to": 6,
 					"comparison": "<",
 					"storage": "*:*_storage"
@@ -58,7 +58,7 @@
 		},
 		"key": "key.drop",
 		"condition": {
-			"type": "hivenestkwt:storage_size",
+			"type": "hivenestkwt:entity_storage_size",
 			"compare_to": 0,
 			"comparison": ">",
 			"storage": "*:*_storage"

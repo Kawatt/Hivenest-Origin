@@ -11,7 +11,7 @@ import io.github.kawatt.hivenestkwt.Hivenest;
 import io.github.kawatt.hivenestkwt.factories.power.EntityStoragePower;
 import net.minecraft.entity.Entity;
 
-public class StorageSizeCondition {
+public class EntityStorageSizeCondition {
 
     public static boolean condition(SerializableData.Instance data, Entity entity) {
         PowerHolderComponent component = PowerHolderComponent.KEY.maybeGet(entity).orElse(null);
@@ -29,12 +29,12 @@ public class StorageSizeCondition {
 
     public static ConditionFactory<Entity> getFactory() {
         return new ConditionFactory<>(
-                Hivenest.identifier("storage_size"),
+                Hivenest.identifier("entity_storage_size"),
                 new SerializableData()
                         .add("storage", ApoliDataTypes.POWER_TYPE)
                         .add("comparison", ApoliDataTypes.COMPARISON)
                         .add("compare_to", SerializableDataTypes.INT),
-                StorageSizeCondition::condition
+                EntityStorageSizeCondition::condition
         );
     }
 
