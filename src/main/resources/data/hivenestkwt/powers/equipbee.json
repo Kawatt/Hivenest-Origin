@@ -1,4 +1,6 @@
 {
+	"name": "Hive Armory",
+	"description": "You can equip bees with weapons and armor. A bee with a weapon won't lose their stinger when attacking. Use shears to take your equipment back.",
 	"type": "apoli:multiple",
 	"equiphelmet": {
 		"type": "apoli:action_on_entity_use",

@@ -1,0 +1,13 @@
+{
+    "values": [
+        "#campfires",
+        {
+            "required": false,
+            "id": "#c:campfires"
+        },
+        {
+            "required": false,
+            "id": "#forge:campfires"
+        }
+    ]
+}

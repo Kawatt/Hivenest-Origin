@@ -1,9 +1,15 @@
 {
     "powers": [
-        "hivenestkwt:beefriend",
         "hivenestkwt:beehive",
+        "hivenestkwt:apicultured",
+        "hivenestkwt:mellivore",
+        "hivenestkwt:waggle",
         "hivenestkwt:equipbee",
-        "hivenestkwt:givehoney"
+        "hivenestkwt:beefriend",
+        "hivenestkwt:lowdmg",
+        "hivenestkwt:sticky",
+        "hivenestkwt:beelocation",
+        "hivenestkwt:smoke"
     ],
     "icon": {
         "item": "minecraft:bee_nest"

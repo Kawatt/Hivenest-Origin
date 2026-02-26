@@ -1,5 +1,5 @@
 {
-	"name": "Beenest",
+	"name": "Bee Nest",
 	"description": "You can pick up and store up to 6 bees. Picking up bees restores their health at the cost of honey.",
 	"type": "apoli:multiple",
 	"storage": {

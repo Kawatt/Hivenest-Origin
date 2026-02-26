@@ -1,10 +1,23 @@
 {
+	"name": "Beelocation",
+	"description": "Interact with a beehive to force the bees out.",
 	"type": "apoli:action_on_block_use",
 	"block_action": {
 		"type": "hivenestkwt:spawn_all_from_beehive",
 		"entity_action": {
 			"type": "apoli:execute_command",
-			"command": "say hello?"
+			"command": "tag @s add hivenestkwt.justexited"
+		}
+	},
+	"entity_action": {
+		"type": "apoli:selector_action",
+		"selector": "@e[tag=hivenestkwt.justexited]",
+		"bientity_action": {
+			"type": "apoli:target_action",
+			"action": {
+				"type": "apoli:execute_command",
+				"command": "say hi!!!"
+			}
 		}
 	},
 	"hands": ["main_hand"],
@@ -24,6 +37,18 @@
 		]
 	},
 	"condition": {
-		"type": "apoli:sneaking"
+		"type": "apoli:and",
+		"conditions": [
+			{
+				"type": "apoli:sneaking"
+			},
+			{
+				"type": "apoli:equipped_item",
+				"equipment_slot": "mainhand",
+				"item_condition": {
+					"type": "apoli:empty"
+				}
+			}
+		]
 	}
 }

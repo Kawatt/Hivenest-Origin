@@ -97,7 +97,7 @@ public class EntityStoragePower extends Power {
             }
 
             entities.remove(storedEntity);
-            spawnAndAction(storedEntity, true);
+            spawnStoredEntity(storedEntity, true);
         }
 
     }
@@ -161,27 +161,16 @@ public class EntityStoragePower extends Power {
         Pair<StoredEntity, Boolean> pair = RemoveStrategy.remove(strategy, entities, 0);
         StoredEntity storedEntity = pair.getLeft();
         Boolean removed = pair.getRight();
-        LOGGER.info("Removing entity {} from storage", storedEntity);
         if (removed) {
-            spawnAndAction(storedEntity, executeRemoveAction);
+            spawnStoredEntity(storedEntity, executeRemoveAction);
         }
 
         return removed;
 
     }
 
-    // Attempts to spawn the entity and executes the action afterwards
-    private void spawnAndAction(StoredEntity storedEntity, boolean executeRemoveAction) {
-        boolean spawned = spawnStoredEntity(storedEntity);
-
-        if (executeRemoveAction && spawned && actionOnRemove != null) {
-            actionOnRemove.accept(new Pair<>(this.entity, entity));
-        }
-
-    }
-
     // Attempts to spawn an entity
-    private boolean spawnStoredEntity(StoredEntity storedEntity) {
+    private boolean spawnStoredEntity(StoredEntity storedEntity, boolean executeRemoveAction) {
         NbtCompound nbtCompound = storedEntity.entityData.copy();
         removeIrrelevantNbtKeys(nbtCompound);
         World world = this.entity.getWorld();
@@ -197,8 +186,12 @@ public class EntityStoragePower extends Power {
             liberatedEntity.refreshPositionAndAngles(this.entity.getX(), y, this.entity.getZ(),
                     this.entity.getYaw(), this.entity.getPitch());
 
+            boolean spawned = world.spawnEntity(liberatedEntity);
 
-            return world.spawnEntity(liberatedEntity);
+            if (executeRemoveAction && spawned && actionOnRemove != null) {
+                actionOnRemove.accept(new Pair<>(this.entity, liberatedEntity));
+            }
+            return spawned;
         } else {
             return false;
         }
@@ -225,7 +218,7 @@ public class EntityStoragePower extends Power {
         if (actionOnRemove != null) {
 
             for (StoredEntity storedEntity : entities) {
-                spawnAndAction(storedEntity,true);
+                spawnStoredEntity(storedEntity,true);
             }
 
         }

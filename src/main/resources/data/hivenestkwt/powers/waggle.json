@@ -1,0 +1,79 @@
+{
+	"name": "Waggle Interpreter",
+	"description": "You can tell when bees have found a flower and when they are low on health.",
+	"type": "apoli:multiple",
+	"flower": {
+		"type": "apoli:entity_glow",
+		"red": 1,
+		"green": 1,
+		"blue": 0,
+		"bientity_condition": {
+			"type": "apoli:and",
+			"conditions": [
+				{
+					"type": "apoli:distance",
+					"comparison": "<",
+					"compare_to": 16
+				},
+				{
+					"type": "apoli:target_condition",
+					"condition": {
+						"type": "apoli:and",
+						"conditions": [
+							{
+								"type": "apoli:entity_type",
+								"entity_type": "minecraft:bee"
+							},
+							{
+								"type": "apoli:in_block",
+								"block_condition": {
+									"type": "apoli:in_tag",
+									"tag": "*:flowers"
+								}
+							},
+							{
+								"type": "apoli:relative_health",
+								"comparison": "<=",
+								"compare_to": 0.2,
+								"inverted": true
+							}
+						]
+					}
+				}
+			]
+		}
+	},
+	"health": {
+		"type": "apoli:entity_glow",
+		"red": 1,
+		"green": 0,
+		"blue": 0,
+		"bientity_condition": {
+			"type": "apoli:and",
+			"conditions": [
+				{
+					"type": "apoli:distance",
+					"comparison": "<",
+					"compare_to": 16
+				},
+				{
+					"type": "apoli:target_condition",
+					"condition": {
+						"type": "apoli:and",
+						"conditions": [
+							{
+								"type": "apoli:entity_type",
+								"entity_type": "minecraft:bee"
+							},
+							{
+								"type": "apoli:relative_health",
+								"comparison": "<=",
+								"compare_to": 0.2
+							}
+						]
+					}
+				}
+			]
+		}
+	}
+}

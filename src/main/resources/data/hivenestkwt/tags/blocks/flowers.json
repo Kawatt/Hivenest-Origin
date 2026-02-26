@@ -1,0 +1,13 @@
+{
+    "values": [
+        "#flowers",
+        {
+            "required": false,
+            "id": "#c:flowers"
+        },
+        {
+            "required": false,
+            "id": "#forge:flowers"
+        }
+    ]
+}
