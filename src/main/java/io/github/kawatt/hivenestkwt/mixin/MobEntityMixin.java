@@ -22,7 +22,7 @@ public abstract class MobEntityMixin extends LivingEntity {
 
     @ModifyVariable(method = "setTarget", at = @At("HEAD"), argsOnly = true)
     private LivingEntity changeTarget(LivingEntity target) {
-        if(getWorld().isClient() || !(target instanceof PlayerEntity)) {
+        if(getWorld().isClient || !(target instanceof PlayerEntity)) {
             return target;
         }
         if ((Object)this instanceof BeeEntity && PowerHolderComponent.hasPower(target, BeeFriend.class)) {

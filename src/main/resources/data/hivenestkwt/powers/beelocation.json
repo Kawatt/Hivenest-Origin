@@ -1,0 +1,29 @@
+{
+	"type": "apoli:action_on_block_use",
+	"block_action": {
+		"type": "hivenestkwt:spawn_all_from_beehive",
+		"entity_action": {
+			"type": "apoli:execute_command",
+			"command": "say hello?"
+		}
+	},
+	"hands": ["main_hand"],
+	"block_condition": {
+		"type": "apoli:and",
+		"conditions": [
+			{
+				"type": "hivenestkwt:is_beehive"
+			},
+			{
+				"type": "hivenestkwt:facing_at_block",
+				"block_condition": {
+					"type": "apoli:movement_blocking",
+					"inverted": true
+				}
+			}
+		]
+	},
+	"condition": {
+		"type": "apoli:sneaking"
+	}
+}

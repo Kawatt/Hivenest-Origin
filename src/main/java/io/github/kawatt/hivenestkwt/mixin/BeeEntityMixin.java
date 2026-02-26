@@ -17,8 +17,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.UUID;
 
-import static io.github.kawatt.hivenestkwt.Hivenest.LOGGER;
-
 @Mixin(BeeEntity.class)
 public class BeeEntityMixin {
 
@@ -31,18 +29,6 @@ public class BeeEntityMixin {
         ItemStack itemStack = living.getEquippedStack(EquipmentSlot.MAINHAND);
         if (!itemStack.isEmpty()) {
             this.setHasStung(false);
-        }
-    }
-
-    @Inject(method = "setAngryAt", at = @At("HEAD"), cancellable = true)
-    private void preventAnger(UUID angryAt, CallbackInfo ci) {
-        BeeEntity bee = (BeeEntity)(Object)this;
-        ServerWorld serverWorld = (ServerWorld) bee.getWorld();
-        Entity entity = serverWorld.getEntity(angryAt);
-        if (entity != null) {
-            if(PowerHolderComponent.hasPower((Entity)(Object)entity, BeeFriend.class)) {
-                ci.cancel();
-            }
         }
     }
 

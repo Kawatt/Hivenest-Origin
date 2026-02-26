@@ -1,0 +1,21 @@
+{
+    "values": [
+        "honey_bottle",
+        {
+            "required": false,
+            "id": "#c:drinks/honey"
+        },
+        {
+            "required": false,
+            "id": "#c:foods/honey"
+        },
+        {
+            "required": false,
+            "id": "#forge:drinks/honey"
+        },
+        {
+            "required": false,
+            "id": "#forge:foods/honey"
+        }
+    ]
+}
