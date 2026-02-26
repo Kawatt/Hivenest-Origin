@@ -1,0 +1,22 @@
+{
+	"type": "apoli:action_on_block_use",
+	"block_action": {
+		"type": "origins:modify_block_state",
+		"property": "honey_level",
+		"change": 5
+	},
+	"hands": ["main_hand"],
+	"block_condition": {
+		"type": "hivenestkwt:is_beehive"
+	},
+	"condition": {
+		"type": "apoli:equipped_item",
+		"equipment_slot": "mainhand",
+		"item_condition": {
+			"type": "apoli:ingredient",
+			"ingredient": {
+				"item": "minecraft:honey_bottle"
+			}
+		}
+	}
+}

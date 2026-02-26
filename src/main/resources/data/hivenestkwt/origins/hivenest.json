@@ -1,0 +1,14 @@
+{
+    "powers": [
+        "hivenestkwt:beefriend",
+        "hivenestkwt:beehive",
+        "hivenestkwt:equipbee",
+        "hivenestkwt:givehoney"
+    ],
+    "icon": {
+        "item": "minecraft:bee_nest"
+    },
+    "impact": 2,
+    "name": "Hivenest",
+    "description": "A beehive that grew legs. It cooperates with bees to maintain itself and protects them."
+}

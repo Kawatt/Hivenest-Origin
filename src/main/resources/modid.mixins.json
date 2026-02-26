@@ -7,7 +7,7 @@
     "BeehiveBlockEntityMixin",
     "BeehiveBlockEntityInvoker",
     "BeeEntityMixin",
-    "PlayerEntityMixin"
+    "MobEntityMixin"
   ],
   "client": [
   ],

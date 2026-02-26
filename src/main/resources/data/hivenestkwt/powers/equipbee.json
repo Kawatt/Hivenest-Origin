@@ -1,10 +1,19 @@
 {
 	"type": "apoli:multiple",
-	"equip": {
+	"equiphelmet": {
 		"type": "apoli:action_on_entity_use",
 		"bientity_action": {
 			"type": "apoli:and",
 			"actions": [
+				{
+					"type": "apoli:target_action",
+					"action": {
+						"type": "apoli:drop_inventory",
+						"slots": [
+							"armor.head"
+						]
+					}
+				},
 				{
 					"type": "apoli:target_action",
 					"action": {
@@ -50,7 +59,7 @@
 			}
 		}
 	},
-	"unequip": {
+	"equipweapon": {
 		"type": "apoli:action_on_entity_use",
 		"bientity_action": {
 			"type": "apoli:and",
@@ -60,8 +69,98 @@
 					"action": {
 						"type": "apoli:drop_inventory",
 						"slots": [
-							"armor.head"
+							"weapon.mainhand"
 						]
+					}
+				},
+				{
+					"type": "apoli:target_action",
+					"action": {
+						"type": "apoli:execute_command",
+						"command": "tag @s add hivenestkwt.aux"
+					}
+				},
+				{
+					"type": "apoli:actor_action",
+					"action": {
+						"type": "apoli:execute_command",
+						"command": "item replace entity @e[type=bee,tag=hivenestkwt.aux,limit=1,sort=nearest] weapon.mainhand from entity @s weapon.mainhand"
+					}
+				},
+				{
+					"type": "apoli:actor_action",
+					"action": {
+						"type": "apoli:execute_command",
+						"command": "item replace entity @s weapon.mainhand with air"
+					}
+				},
+				{
+					"type": "apoli:target_action",
+					"action": {
+						"type": "apoli:execute_command",
+						"command": "tag @s remove hivenestkwt.aux"
+					}
+				},
+				{
+					"type": "apoli:target_action",
+					"action": {
+						"type": "apoli:execute_command",
+						"command": "data modify entity @s ArmorDropChances set value [1.0f,1.0f,1.0f,1.0f]"
+					}
+				},
+				{
+					"type": "apoli:target_action",
+					"action": {
+						"type": "apoli:execute_command",
+						"command": "data modify entity @s HandDropChances set value [1.0f,1.0f]"
+					}
+				}
+			]
+		},
+		"bientity_condition": {
+			"type": "apoli:target_condition",
+			"condition": {
+				"type": "apoli:entity_type",
+				"entity_type": "minecraft:bee"
+			}
+		},
+		"condition": {
+			"type": "apoli:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+				"type": "hivenestkwt:is_tool"
+			}
+		}
+	},
+	"unequip": {
+		"type": "apoli:action_on_entity_use",
+		"bientity_action": {
+			"type": "apoli:and",
+			"actions": [
+				{
+
+					"type": "apoli:target_action",
+					"action": {
+						"type": "apoli:if_else",
+						"condition": {
+							"type": "apoli:equipped_item",
+							"equipment_slot": "mainhand",
+							"item_condition": {
+								"type": "apoli:empty"
+							}
+						},
+						"if_action": {
+							"type": "apoli:drop_inventory",
+							"slots": [
+								"armor.head"
+							]
+						},
+						"else_action": {
+							"type": "apoli:drop_inventory",
+							"slots": [
+								"weapon.mainhand"
+							]
+						}
 					}
 				}
 			]

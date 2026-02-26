@@ -1,7 +1,21 @@
 {
 	"type": "apoli:multiple",
 	"storage": {
-		"type": "hivenestkwt:entity_storage"
+		"type": "hivenestkwt:entity_storage",
+		"action_on_added": {
+			"type": "apoli:target_action",
+			"action": {
+				"type": "apoli:execute_command",
+				"command": "say captured"
+			}
+		},
+		"action_on_remove": {
+			"type": "apoli:target_action",
+			"action": {
+				"type": "apoli:execute_command",
+				"command": "say released"
+			}
+		}
 	},
 	"addto": {
 		"type": "apoli:action_on_entity_use",
@@ -11,15 +25,17 @@
 				{
 					"type": "hivenestkwt:add_to_entity_storage",
 					"storage": "*:*_storage"
-				},
-				{
-					"type": "apoli:actor_action",
-					"action": {
-						"type": "apoli:execute_command",
-						"command": "say captured"
-					}
 				}
 			]
+		},
+		"bientity_condition": {
+			"type": "apoli:target_condition",
+			"condition": {
+				"type": "apoli:command",
+				"command": "execute if data entity @s Leash",
+				"comparison": "==",
+				"compare_to": 0
+			}
 		},
 		"condition": {
 			"type": "apoli:and",
@@ -49,10 +65,6 @@
 					"type": "hivenestkwt:remove_from_entity_storage",
 					"storage": "*:*_storage",
 					"strategy": "first"
-				},
-				{
-					"type": "apoli:execute_command",
-					"command": "say released"
 				}
 			]
 		},
@@ -67,7 +79,11 @@
 	"beeexit": {
 		"type": "apoli:action_on_block_use",
 		"block_action": {
-			"type": "hivenestkwt:spawn_entity_from_beehive"
+			"type": "hivenestkwt:spawn_all_from_beehive",
+			"entity_action": {
+				"type": "apoli:execute_command",
+				"command": "say hello?"
+			}
 		},
 		"hands": ["main_hand"],
 		"block_condition": {

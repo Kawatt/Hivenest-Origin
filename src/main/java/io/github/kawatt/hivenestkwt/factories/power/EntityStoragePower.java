@@ -27,7 +27,7 @@ public class EntityStoragePower extends Power {
     // Could add some more
     private static final List<String> IRRELEVANT_ENTITY_NBT_KEYS = Arrays.asList("Air", "Brain", "DeathTime", "HurtByTimestamp", "HurtTime", "Motion", "OnGround", "PortalCooldown", "Pos", "Rotation", "CannotEnterHiveTicks", "TicksSincePollination", "CropsGrownSincePollination", "HivePos", "Passengers", "Leash", "UUID");
 
-    private final Consumer<Entity> actionOnAdd;
+    private final Consumer<Pair<Entity, Entity>> actionOnAdd;
     private final Consumer<Pair<Entity, Entity>> actionOnRemove;
     private final int tickRate;
 
@@ -39,7 +39,7 @@ public class EntityStoragePower extends Power {
     // Temporary logic has to be completely rewritten
     private boolean removedTemps = false;
 
-    public EntityStoragePower(PowerType<?> type, LivingEntity entity, Consumer<Entity> actionOnAdd, Consumer<Pair<Entity, Entity>> actionOnRemove, int tickRate) {
+    public EntityStoragePower(PowerType<?> type, LivingEntity entity, Consumer<Pair<Entity, Entity>> actionOnAdd, Consumer<Pair<Entity, Entity>> actionOnRemove, int tickRate) {
         super(type, entity);
         this.actionOnAdd = actionOnAdd;
         this.actionOnRemove = actionOnRemove;
@@ -112,6 +112,10 @@ public class EntityStoragePower extends Power {
             return false;
         }
 
+        if (actionOnAdd != null) {
+            actionOnAdd.accept(new Pair<>(this.entity, entity));
+        }
+
         entity.stopRiding();
         entity.removeAllPassengers();
         NbtCompound nbtCompound = new NbtCompound();
@@ -119,11 +123,6 @@ public class EntityStoragePower extends Power {
         int tempTime = time != null ? time : 0;
         this.entities.add(new StoredEntity(nbtCompound, 0, tempTime));
         entity.discard();
-
-        //entity.getWorld().getTime()
-        if (actionOnAdd != null) {
-            actionOnAdd.accept(this.entity);
-        }
 
         return true;
 
@@ -296,7 +295,7 @@ public class EntityStoragePower extends Power {
         return new PowerFactory<>(
                 Hivenest.identifier("entity_storage"),
                 new SerializableData()
-                        .add("action_on_add", ApoliDataTypes.ENTITY_ACTION, null)
+                        .add("action_on_add", ApoliDataTypes.BIENTITY_ACTION, null)
                         .add("action_on_remove", ApoliDataTypes.BIENTITY_ACTION, null)
                         .add("tick_rate", SerializableDataTypes.POSITIVE_INT, 1),
                 data -> (powerType, livingEntity) -> new EntityStoragePower(

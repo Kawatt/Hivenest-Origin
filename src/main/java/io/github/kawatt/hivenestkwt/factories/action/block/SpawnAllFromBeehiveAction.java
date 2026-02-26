@@ -17,8 +17,9 @@ import net.minecraft.world.World;
 import org.apache.commons.lang3.tuple.Triple;
 
 import java.util.List;
+import java.util.function.Consumer;
 
-public class SpawnEntityFromBeehiveAction {
+public class SpawnAllFromBeehiveAction {
     public static void action(SerializableData.Instance data, Triple<World, BlockPos, Direction> block) {
         World world = block.getLeft();
         BlockPos blockPos = block.getMiddle();
@@ -32,20 +33,24 @@ public class SpawnEntityFromBeehiveAction {
             }
             List<Entity> bees = ((BeehiveBlockEntityInvoker) beehive)
                     .callTryReleaseBee(blockState, BeehiveBlockEntity.BeeState.EMERGENCY);
+            Consumer<Entity> action = data.get("entity_action");
             for (Entity entity : bees) {
                 if (entity instanceof BeeEntity bee) {
                     bee.setCannotEnterHiveTicks(data.get("cannot_enter_hive_ticks"));
+                }
+                if (action != null){
+                    action.accept(entity);
                 }
             }
         }
     }
 
     public static ActionFactory<Triple<World, BlockPos, Direction>> getFactory() {
-        return new ActionFactory<>(Hivenest.identifier("spawn_entity_from_beehive"),
+        return new ActionFactory<>(Hivenest.identifier("spawn_all_from_beehive"),
                 new SerializableData()
-                        .add("bientity_action", ApoliDataTypes.BIENTITY_ACTION, null)
+                        .add("entity_action", ApoliDataTypes.ENTITY_ACTION, null)
                         .add("cannot_enter_hive_ticks", SerializableDataTypes.INT, 400),
-                SpawnEntityFromBeehiveAction::action
+                SpawnAllFromBeehiveAction::action
         );
     }
 }
