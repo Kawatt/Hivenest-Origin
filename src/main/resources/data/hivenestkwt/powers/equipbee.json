@@ -17,18 +17,9 @@
 					}
 				},
 				{
-					"type": "apoli:target_action",
-					"action": {
-						"type": "apoli:execute_command",
-						"command": "tag @s add hivenestkwt.aux"
-					}
-				},
-				{
-					"type": "apoli:actor_action",
-					"action": {
-						"type": "apoli:execute_command",
-						"command": "item replace entity @e[type=bee,tag=hivenestkwt.aux,limit=1,sort=nearest] armor.head from entity @s weapon.mainhand"
-					}
+					"type": "hivenestkwt:give_stack",
+					"actor_slot": "weapon.mainhand",
+					"target_slot": "armor.head"
 				},
 				{
 					"type": "apoli:actor_action",
@@ -41,7 +32,7 @@
 					"type": "apoli:target_action",
 					"action": {
 						"type": "apoli:execute_command",
-						"command": "tag @s remove hivenestkwt.aux"
+						"command": "data modify entity @s ArmorDropChances set value [2.0f,2.0f,2.0f,2.0f]"
 					}
 				}
 			]
@@ -76,18 +67,9 @@
 					}
 				},
 				{
-					"type": "apoli:target_action",
-					"action": {
-						"type": "apoli:execute_command",
-						"command": "tag @s add hivenestkwt.aux"
-					}
-				},
-				{
-					"type": "apoli:actor_action",
-					"action": {
-						"type": "apoli:execute_command",
-						"command": "item replace entity @e[type=bee,tag=hivenestkwt.aux,limit=1,sort=nearest] weapon.mainhand from entity @s weapon.mainhand"
-					}
+					"type": "hivenestkwt:give_stack",
+					"actor_slot": "weapon.mainhand",
+					"target_slot": "weapon.mainhand"
 				},
 				{
 					"type": "apoli:actor_action",
@@ -100,21 +82,7 @@
 					"type": "apoli:target_action",
 					"action": {
 						"type": "apoli:execute_command",
-						"command": "tag @s remove hivenestkwt.aux"
-					}
-				},
-				{
-					"type": "apoli:target_action",
-					"action": {
-						"type": "apoli:execute_command",
-						"command": "data modify entity @s ArmorDropChances set value [1.0f,1.0f,1.0f,1.0f]"
-					}
-				},
-				{
-					"type": "apoli:target_action",
-					"action": {
-						"type": "apoli:execute_command",
-						"command": "data modify entity @s HandDropChances set value [1.0f,1.0f]"
+						"command": "data modify entity @s HandDropChances set value [2.0f,2.0f]"
 					}
 				}
 			]
@@ -140,7 +108,13 @@
 			"type": "apoli:and",
 			"actions": [
 				{
-
+					"type": "apoli:target_action",
+					"action": {
+						"type": "apoli:play_sound",
+						"sound": "minecraft:entity.sheep.shear"
+					}
+				},
+				{
 					"type": "apoli:target_action",
 					"action": {
 						"type": "apoli:if_else",
@@ -170,8 +144,34 @@
 		"bientity_condition": {
 			"type": "apoli:target_condition",
 			"condition": {
-				"type": "apoli:entity_type",
-				"entity_type": "minecraft:bee"
+				"type": "apoli:and",
+				"conditions": [
+					{
+						"type": "apoli:entity_type",
+						"entity_type": "minecraft:bee"
+					},
+					{
+						"type": "apoli:or",
+						"conditions": [
+							{
+								"type": "apoli:equipped_item",
+								"equipment_slot": "mainhand",
+								"item_condition": {
+									"type": "apoli:empty",
+									"inverted": true
+								}
+							},
+							{
+								"type": "apoli:equipped_item",
+								"equipment_slot": "head",
+								"item_condition": {
+									"type": "apoli:empty",
+									"inverted": true
+								}
+							}
+						]
+					}
+				]
 			}
 		},
 		"condition": {

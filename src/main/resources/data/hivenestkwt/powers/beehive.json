@@ -3,40 +3,89 @@
 	"description": "You can pick up and store up to 6 bees. Picking up bees restores their health at the cost of honey.",
 	"type": "apoli:multiple",
 	"storage": {
+		"a": "apoli:entity_set",
 		"type": "hivenestkwt:entity_storage",
 		"action_on_add": {
-			"type": "apoli:target_action",
-			"action": {
-				"type": "apoli:execute_command",
-				"command": "say captured"
-			}
+			"type": "apoli:and",
+			"actions": [
+				{
+								"type": "apoli:target_action",
+								"action": {
+									"type": "apoli:execute_command",
+									"command": "say hello yes this true"
+								}
+							},
+				{
+					"type": "apoli:if_else",
+					"condition": {
+						"type": "apoli:target_condition",
+						"condition": {
+							"type": "apoli:command",
+							"command": "execute if data entity @s {HasNectar:1b}",
+							"comparison": "==",
+							"compare_to": 1
+						}
+					},
+					"if_action": {
+						"type": "apoli:and",
+						"actions": [
+							{
+								"type": "apoli:actor_action",
+								"action": {
+									"type": "apoli:change_resource",
+									"resource": "*:apicultured_pollen",
+									"change": 10
+								}
+							},
+							{
+								"type": "apoli:target_action",
+								"action": {
+									"type": "apoli:execute_command",
+									"command": "say entered here, im afraid its client side"
+								}
+							},
+							{
+								"type": "apoli:target_action",
+								"action": {
+									"type": "apoli:execute_command",
+									"command": "data modify entity @s HasNectar set value 0b"
+								}
+							}
+						]
+					}
+				}
+			]
 		},
 		"action_on_remove": {
 			"type": "apoli:target_action",
 			"action": {
 				"type": "apoli:execute_command",
-				"command": "say released"
+				"command": "say im out!"
 			}
 		}
 	},
 	"addto": {
 		"type": "apoli:action_on_entity_use",
 		"bientity_action": {
-			"type": "apoli:and",
-			"actions": [
-				{
-					"type": "hivenestkwt:add_to_entity_storage",
-					"storage": "*:*_storage"
-				}
-			]
+			"type": "hivenestkwt:add_to_entity_storage",
+			"storage": "*:*_storage"
 		},
 		"bientity_condition": {
 			"type": "apoli:target_condition",
 			"condition": {
-				"type": "apoli:command",
-				"command": "execute if data entity @s Leash",
-				"comparison": "==",
-				"compare_to": 0
+				"type": "apoli:and",
+				"conditions": [
+					{
+						"type": "apoli:command",
+						"command": "execute if data entity @s Leash",
+						"comparison": "==",
+						"compare_to": 0
+					},
+					{
+						"type": "apoli:entity_type",
+						"entity_type": "minecraft:bee"
+					}
+				]
 			}
 		},
 		"condition": {
@@ -66,7 +115,7 @@
 				{
 					"type": "hivenestkwt:remove_from_entity_storage",
 					"storage": "*:*_storage",
-					"strategy": "first"
+					"strategy": "last"
 				}
 			]
 		},

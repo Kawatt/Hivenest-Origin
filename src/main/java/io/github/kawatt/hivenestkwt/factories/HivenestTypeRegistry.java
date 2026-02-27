@@ -11,6 +11,7 @@ import io.github.kawatt.hivenestkwt.factories.condition.block.FacingAtBlockCondi
 import io.github.kawatt.hivenestkwt.factories.condition.block.IsBeehiveCondition;
 import io.github.kawatt.hivenestkwt.factories.condition.entity.EntityStorageSizeCondition;
 import io.github.kawatt.hivenestkwt.factories.condition.item.IsHelmetCondition;
+import io.github.kawatt.hivenestkwt.factories.condition.item.IsSuspiciousIngredientCondition;
 import io.github.kawatt.hivenestkwt.factories.condition.item.IsToolCondition;
 import io.github.kawatt.hivenestkwt.factories.power.BeeFriend;
 import io.github.kawatt.hivenestkwt.factories.power.EntityStoragePower;
@@ -31,6 +32,7 @@ public class HivenestTypeRegistry {
         ApoliRegistryHelper.registerBlockCondition(FacingAtBlockCondition.getFactory());
         ApoliRegistryHelper.registerItemCondition(IsHelmetCondition.getFactory());
         ApoliRegistryHelper.registerItemCondition(IsToolCondition.getFactory());
+        ApoliRegistryHelper.registerItemCondition(IsSuspiciousIngredientCondition.getFactory());
         ApoliRegistryHelper.registerPowerFactory(EntityStoragePower.getFactory());
         ApoliRegistryHelper.registerPowerFactory(BeeFriend.getFactory());
     }
