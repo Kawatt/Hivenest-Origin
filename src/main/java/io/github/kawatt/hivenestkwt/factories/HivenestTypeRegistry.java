@@ -2,7 +2,7 @@ package io.github.kawatt.hivenestkwt.factories;
 
 import io.github.kawatt.hivenestkwt.factories.action.bientity.AddToEntityStorageAction;
 import io.github.kawatt.hivenestkwt.factories.action.bientity.AngerTargetAction;
-import io.github.kawatt.hivenestkwt.factories.action.bientity.GiveStackAction;
+import io.github.kawatt.hivenestkwt.factories.action.bientity.CopyStackToAction;
 import io.github.kawatt.hivenestkwt.factories.action.block.BlockFacingAtAction;
 import io.github.kawatt.hivenestkwt.factories.action.block.SpawnAllFromBeehiveAction;
 import io.github.kawatt.hivenestkwt.factories.action.entity.ApplySusEffectFromHeldItemAction;
@@ -21,7 +21,7 @@ public class HivenestTypeRegistry {
 
     public static void register() {
         ApoliRegistryHelper.registerBientityAction(AddToEntityStorageAction.getFactory());
-        ApoliRegistryHelper.registerBientityAction(GiveStackAction.getFactory());
+        ApoliRegistryHelper.registerBientityAction(CopyStackToAction.getFactory());
         ApoliRegistryHelper.registerBientityAction(AngerTargetAction.getFactory());
         ApoliRegistryHelper.registerEntityAction(RemoveFromEntityStorageAction.getFactory());
         ApoliRegistryHelper.registerEntityAction(ApplySusEffectFromHeldItemAction.getFactory());

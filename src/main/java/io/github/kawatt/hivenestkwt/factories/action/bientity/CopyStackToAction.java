@@ -15,7 +15,7 @@ import java.util.Set;
 
 import static io.github.apace100.apoli.util.InventoryUtil.*;
 
-public class GiveStackAction {
+public class CopyStackToAction {
 
     public static void action(SerializableData.Instance data, Pair<Entity, Entity> actorAndTarget) {
 
@@ -49,7 +49,7 @@ public class GiveStackAction {
 
     public static ActionFactory<Pair<Entity, Entity>> getFactory() {
         return new ActionFactory<>(
-                Hivenest.identifier("give_stack"),
+                Hivenest.identifier("copy_stack_to"),
                 new SerializableData()
                         .add("actor_slot", ApoliDataTypes.ITEM_SLOT, null)
                         .add("target_slot", ApoliDataTypes.ITEM_SLOT, null)
@@ -57,7 +57,7 @@ public class GiveStackAction {
                         .add("item_action", ApoliDataTypes.ITEM_ACTION, null)
                         .add("item_condition", ApoliDataTypes.ITEM_CONDITION, null)
                         .add("merge_nbt", SerializableDataTypes.BOOLEAN, false),
-                GiveStackAction::action
+                CopyStackToAction::action
         );
     }
 }

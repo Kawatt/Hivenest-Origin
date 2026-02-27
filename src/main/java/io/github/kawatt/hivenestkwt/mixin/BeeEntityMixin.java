@@ -18,7 +18,7 @@ public class BeeEntityMixin {
     private void setHasStung(boolean hasStung) {}
 
     @Inject(method = "tryAttack", at = @At("RETURN"))
-    private void restoreStinger(Entity entity, CallbackInfoReturnable<Boolean> cir) {
+    private void hivenest$restoreStinger(Entity entity, CallbackInfoReturnable<Boolean> cir) {
         LivingEntity living = (LivingEntity)(Object)this;
         ItemStack itemStack = living.getEquippedStack(EquipmentSlot.MAINHAND);
         if (!itemStack.isEmpty()) {

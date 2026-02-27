@@ -21,7 +21,7 @@ public class BeehiveBlockEntityMixin {
     private static List<String> IRRELEVANT_BEE_NBT_KEYS;
 
     @Inject(method = "<clinit>", at = @At("TAIL"))
-    private static void modifyIrrelevantKeys(CallbackInfo ci) {
+    private static void hivenest$modifyIrrelevantKeys(CallbackInfo ci) {
         List<String> modified = new ArrayList<>(IRRELEVANT_BEE_NBT_KEYS);
 
         modified.remove("ArmorDropChances");

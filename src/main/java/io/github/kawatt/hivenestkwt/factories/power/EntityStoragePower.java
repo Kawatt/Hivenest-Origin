@@ -25,7 +25,7 @@ import static io.github.kawatt.hivenestkwt.Hivenest.LOGGER;
 
 public class EntityStoragePower extends Power {
     // Could add some more
-    private static final List<String> IRRELEVANT_ENTITY_NBT_KEYS = Arrays.asList("Air", "Brain", "DeathTime", "HurtByTimestamp", "HurtTime", "Motion", "OnGround", "PortalCooldown", "Pos", "Rotation", "CannotEnterHiveTicks", "TicksSincePollination", "CropsGrownSincePollination", "HivePos", "Passengers", "Leash", "UUID");
+    private static final List<String> IRRELEVANT_ENTITY_NBT_KEYS = Arrays.asList("Air", "DeathTime", "HurtByTimestamp", "HurtTime", "Motion", "OnGround", "PortalCooldown", "Pos", "Rotation", "Passengers", "Leash", "UUID");
 
     private final Consumer<Pair<Entity, Entity>> actionOnAdd;
     private final Consumer<Pair<Entity, Entity>> actionOnRemove;

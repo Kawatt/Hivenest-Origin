@@ -15,7 +15,7 @@
 				}
 			},
 			{
-				"type": "hivenestkwt:give_stack",
+				"type": "hivenestkwt:copy_stack_to",
 				"actor_slot": "weapon.mainhand",
 				"target_slot": "weapon.offhand"
 			},

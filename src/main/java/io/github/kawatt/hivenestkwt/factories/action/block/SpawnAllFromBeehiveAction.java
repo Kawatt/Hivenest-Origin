@@ -32,7 +32,7 @@ public class SpawnAllFromBeehiveAction {
                 return;
             }
             List<Entity> bees = ((BeehiveBlockEntityInvoker) beehive)
-                    .callTryReleaseBee(blockState, BeehiveBlockEntity.BeeState.EMERGENCY);
+                    .hivenest$callTryReleaseBee(blockState, BeehiveBlockEntity.BeeState.EMERGENCY);
             Consumer<Entity> action = data.get("entity_action");
             for (Entity entity : bees) {
                 if (entity instanceof BeeEntity bee) {
