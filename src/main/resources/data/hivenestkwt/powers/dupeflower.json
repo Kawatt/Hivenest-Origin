@@ -1,0 +1,5 @@
+{
+    "name": "Expert Pollinator",
+    "description": "Picking up a bee with a flower in your offhand will duplicate said flower if the bee has pollinated any crops.",
+    "type": "apoli:simple"
+}

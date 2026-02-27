@@ -84,6 +84,13 @@
 						"type": "apoli:execute_command",
 						"command": "data modify entity @s HandDropChances set value [2.0f,2.0f]"
 					}
+				},
+				{
+					"type": "apoli:target_action",
+					"action": {
+						"type": "apoli:play_sound",
+						"sound": "item.armor.equip_generic"
+					}
 				}
 			]
 		},
@@ -117,26 +124,57 @@
 				{
 					"type": "apoli:target_action",
 					"action": {
-						"type": "apoli:if_else",
-						"condition": {
-							"type": "apoli:equipped_item",
-							"equipment_slot": "mainhand",
-							"item_condition": {
-								"type": "apoli:empty"
+						"type": "apoli:if_else_list",
+						"actions": [
+							{
+								"condition": {
+									"type": "apoli:equipped_item",
+									"equipment_slot": "offhand",
+									"item_condition": {
+										"type": "apoli:empty",
+										"inverted": true
+									}
+								},
+								"action": {
+									"type": "apoli:drop_inventory",
+									"slots": [
+										"weapon.offhand"
+									]
+								}
+							},
+							{
+								"condition": {
+									"type": "apoli:equipped_item",
+									"equipment_slot": "mainhand",
+									"item_condition": {
+										"type": "apoli:empty",
+										"inverted": true
+									}
+								},
+								"action": {
+									"type": "apoli:drop_inventory",
+									"slots": [
+										"weapon.mainhand"
+									]
+								}
+							},
+							{
+								"condition": {
+									"type": "apoli:equipped_item",
+									"equipment_slot": "head",
+									"item_condition": {
+										"type": "apoli:empty",
+										"inverted": true
+									}
+								},
+								"action": {
+									"type": "apoli:drop_inventory",
+									"slots": [
+										"armor.head"
+									]
+								}
 							}
-						},
-						"if_action": {
-							"type": "apoli:drop_inventory",
-							"slots": [
-								"armor.head"
-							]
-						},
-						"else_action": {
-							"type": "apoli:drop_inventory",
-							"slots": [
-								"weapon.mainhand"
-							]
-						}
+						]
 					}
 				}
 			]
@@ -164,6 +202,14 @@
 							{
 								"type": "apoli:equipped_item",
 								"equipment_slot": "head",
+								"item_condition": {
+									"type": "apoli:empty",
+									"inverted": true
+								}
+							},
+							{
+								"type": "apoli:equipped_item",
+								"equipment_slot": "offhand",
 								"item_condition": {
 									"type": "apoli:empty",
 									"inverted": true

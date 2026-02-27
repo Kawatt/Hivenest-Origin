@@ -2,6 +2,20 @@
 	"name": "Sticky Situation",
 	"description": "You can phase through and climb honey blocks.",
 	"type": "apoli:multiple",
+	"climbing": {
+		"type": "apoli:climbing",
+		"hold_condition": {
+			"type": "apoli:constant",
+			"value": false
+		},
+		"condition": {
+			"type": "apoli:in_block_anywhere",
+			"block_condition": {
+				"type": "apoli:in_tag",
+				"tag": "*:honey"
+			}
+		}
+	},
 	"phasing": {
 		"type": "apoli:phasing",
 		"block_condition": {

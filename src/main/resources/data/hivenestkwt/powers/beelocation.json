@@ -3,22 +3,7 @@
 	"description": "Interact with a beehive to force the bees out.",
 	"type": "apoli:action_on_block_use",
 	"block_action": {
-		"type": "hivenestkwt:spawn_all_from_beehive",
-		"entity_action": {
-			"type": "apoli:execute_command",
-			"command": "tag @s add hivenestkwt.justexited"
-		}
-	},
-	"entity_action": {
-		"type": "apoli:selector_action",
-		"selector": "@e[tag=hivenestkwt.justexited]",
-		"bientity_action": {
-			"type": "apoli:target_action",
-			"action": {
-				"type": "apoli:execute_command",
-				"command": "say hi!!!"
-			}
-		}
+		"type": "hivenestkwt:spawn_all_from_beehive"
 	},
 	"hands": ["main_hand"],
 	"block_condition": {

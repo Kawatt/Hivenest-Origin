@@ -1,0 +1,70 @@
+{
+	"name": "Sweet Nectar",
+	"description": "Giving a bee flowers while sneaking will make them hold them. When the bee gets hit, they will consume the flower to gain potion effects.",
+	"type": "apoli:action_on_entity_use",
+	"bientity_action": {
+		"type": "apoli:and",
+		"actions": [
+			{
+				"type": "apoli:target_action",
+				"action": {
+					"type": "apoli:drop_inventory",
+					"slots": [
+						"weapon.offhand"
+					]
+				}
+			},
+			{
+				"type": "hivenestkwt:give_stack",
+				"actor_slot": "weapon.mainhand",
+				"target_slot": "weapon.offhand"
+			},
+			{
+				"type": "apoli:actor_action",
+				"action": {
+					"type": "apoli:execute_command",
+					"command": "item replace entity @s weapon.mainhand with air"
+				}
+			},
+			{
+				"type": "apoli:target_action",
+				"action": {
+					"type": "apoli:execute_command",
+					"command": "power grant @s hivenestkwt:flowerconsume"
+				}
+			},
+			{
+				"type": "apoli:target_action",
+				"action": {
+					"type": "apoli:play_sound",
+					"sound": "block.flowering_azalea.place"
+				}
+			}
+		]
+	},
+	"bientity_condition": {
+		"type": "apoli:target_condition",
+		"condition": {
+			"type": "apoli:entity_type",
+			"entity_type": "minecraft:bee"
+		}
+	},
+	"condition": {
+		"type": "apoli:and",
+		"conditions": [
+			{
+				"type": "apoli:equipped_item",
+				"equipment_slot": "mainhand",
+				"item_condition": {
+					"type": "apoli:ingredient",
+					"ingredient": {
+						"tag": "*:flowers"
+					}
+				}
+			},
+			{
+				"type": "apoli:sneaking"
+			}
+		]
+	}
+}

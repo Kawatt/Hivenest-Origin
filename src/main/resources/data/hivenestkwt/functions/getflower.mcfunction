@@ -1,0 +1,1 @@
+data modify storage hivenestkwt:storage flower set from entity @s Inventory[{Slot:-106b}].id

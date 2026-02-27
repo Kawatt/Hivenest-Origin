@@ -1,20 +1,64 @@
 {
 	"name": "Bee Nest",
-	"description": "You can pick up and store up to 6 bees. Picking up bees restores their health at the cost of honey.",
+	"description": "You can pick up and store up to 6 bees. Picking up bees restores their health at the cost of honey if below half health.",
 	"type": "apoli:multiple",
 	"storage": {
-		"a": "apoli:entity_set",
 		"type": "hivenestkwt:entity_storage",
 		"action_on_add": {
 			"type": "apoli:and",
 			"actions": [
 				{
-								"type": "apoli:target_action",
-								"action": {
-									"type": "apoli:execute_command",
-									"command": "say hello yes this true"
+					"type": "apoli:actor_action",
+					"action": {
+						"type": "apoli:play_sound",
+						"sound": "minecraft:block.beehive.enter"
+					}
+				},
+				{
+					"type": "apoli:if_else",
+					"condition": {
+						"type": "apoli:and",
+						"conditions": [
+							{
+								"type": "apoli:target_condition",
+								"condition": {
+									"type": "apoli:relative_health",
+									"comparison": "<=",
+									"compare_to": 0.5
 								}
 							},
+							{
+								"type": "apoli:actor_condition",
+								"condition": {
+									"type": "apoli:resource",
+									"resource": "*:apicultured_honey",
+									"comparison": ">=",
+									"compare_to": 10
+								}
+							}
+						]
+					},
+					"if_action": {
+						"type": "apoli:and",
+						"actions": [
+							{
+								"type": "apoli:actor_action",
+								"action": {
+									"type": "apoli:change_resource",
+									"resource": "*:apicultured_honey",
+									"change": -10
+								}
+							},
+							{
+								"type": "apoli:target_action",
+								"action": {
+									"type": "apoli:heal",
+									"amount": 20
+								}
+							}
+						]
+					}
+				},
 				{
 					"type": "apoli:if_else",
 					"condition": {
@@ -41,14 +85,59 @@
 								"type": "apoli:target_action",
 								"action": {
 									"type": "apoli:execute_command",
-									"command": "say entered here, im afraid its client side"
+									"command": "data modify entity @s HasNectar set value 0b"
+								}
+							}
+						]
+					}
+				},
+				{
+					"type": "apoli:if_else",
+					"condition": {
+						"type": "apoli:target_condition",
+						"condition": {
+							"type": "apoli:command",
+							"command": "execute if data entity @s {CropsGrownSincePollination:0}",
+							"comparison": "==",
+							"compare_to": 0
+						}
+					},
+					"if_action": {
+						"type": "apoli:and",
+						"actions": [
+							{
+								"type": "apoli:target_action",
+								"action": {
+									"type": "apoli:execute_command",
+									"command": "function hivenestkwt:getamount"
+								}
+							},
+							{
+								"type": "apoli:actor_action",
+								"action": {
+									"type": "apoli:execute_command",
+									"command": "function hivenestkwt:getflower"
+								}
+							},
+							{
+								"type": "apoli:actor_action",
+								"action": {
+									"type": "apoli:execute_command",
+									"command": "function hivenestkwt:giveflowers with storage hivenestkwt:storage"
 								}
 							},
 							{
 								"type": "apoli:target_action",
 								"action": {
 									"type": "apoli:execute_command",
-									"command": "data modify entity @s HasNectar set value 0b"
+									"command": "data modify entity @s CropsGrownSincePollination set value 0"
+								}
+							},
+							{
+								"type": "apoli:actor_action",
+								"action": {
+									"type": "apoli:execute_command",
+									"command": "particle minecraft:composter ~ ~1 ~ 0.5 0.5 0.5 0.2 10"
 								}
 							}
 						]
@@ -57,18 +146,38 @@
 			]
 		},
 		"action_on_remove": {
-			"type": "apoli:target_action",
+			"type": "apoli:actor_action",
 			"action": {
-				"type": "apoli:execute_command",
-				"command": "say im out!"
+				"type": "apoli:play_sound",
+				"sound": "minecraft:block.beehive.exit"
 			}
 		}
 	},
 	"addto": {
 		"type": "apoli:action_on_entity_use",
 		"bientity_action": {
-			"type": "hivenestkwt:add_to_entity_storage",
-			"storage": "*:*_storage"
+			"type": "apoli:if_else",
+			"condition": {
+				"type": "apoli:actor_condition",
+				"condition": {
+					"type": "hivenestkwt:entity_storage_size",
+					"compare_to": 6,
+					"comparison": "<",
+					"storage": "*:*_storage"
+				}
+			},
+			"if_action": {
+				"type": "hivenestkwt:add_to_entity_storage",
+				"storage": "*:*_storage"
+			},
+			"else_action": {
+				"type": "apoli:actor_action",
+				"action": {
+					"type": "apoli:play_sound",
+					"sound": "block.beehive.enter",
+					"pitch": 2
+				}
+			}
 		},
 		"bientity_condition": {
 			"type": "apoli:target_condition",
@@ -97,12 +206,6 @@
 					"item_condition": {
 						"type": "apoli:empty"
 					}
-				},
-				{
-					"type": "hivenestkwt:entity_storage_size",
-					"compare_to": 6,
-					"comparison": "<",
-					"storage": "*:*_storage"
 				}
 			]
 		}
@@ -119,7 +222,7 @@
 				}
 			]
 		},
-		"key": "key.drop",
+		"key": "key.origins.primary_active",
 		"condition": {
 			"type": "hivenestkwt:entity_storage_size",
 			"compare_to": 0,

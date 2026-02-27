@@ -4,9 +4,9 @@
     "type": "apoli:multiple",
     "honey": {
         "type": "apoli:resource",
-        "start_value": 0,
+        "start_value": 100,
         "min": 0,
-        "max": 500,
+        "max": 700,
         "hud_render": {
             "bar_index": 1
         }
@@ -15,7 +15,7 @@
         "type": "apoli:resource",
         "start_value": 0,
         "min": 0,
-        "max": 500,
+        "max": 700,
         "hud_render": {
             "bar_index": 0
         }
@@ -37,6 +37,23 @@
                     "change": 10
                 }
             ]
+        },
+        "condition": {
+            "type": "apoli:and",
+            "conditions": [
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_pollen",
+                    "comparison": ">=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "apoli:resource",
+                    "resource": "*:*_honey",
+                    "comparison": "!=",
+                    "compare_to": 700
+                }
+            ]
         }
     },
     "food": {
@@ -55,14 +72,14 @@
     },
     "particles": {
         "type": "apoli:particle",
-        "particle": "minecraft:dripping_honey",
+        "particle": "minecraft:falling_honey",
         "count": 1,
-        "frequency": 1,
+        "frequency": 10,
         "condition": {
             "type": "apoli:resource",
             "resource": "*:*_honey",
             "comparison": ">=",
-            "compare_to": 400
+            "compare_to": 500
         }
     }
 }

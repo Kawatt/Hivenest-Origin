@@ -1,0 +1,1 @@
+execute store result storage hivenestkwt:storage crops int 1 run data get entity @s CropsGrownSincePollination

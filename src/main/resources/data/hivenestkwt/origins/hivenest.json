@@ -3,13 +3,17 @@
         "hivenestkwt:beehive",
         "hivenestkwt:apicultured",
         "hivenestkwt:mellivore",
-        "hivenestkwt:waggle",
-        "hivenestkwt:equipbee",
         "hivenestkwt:beefriend",
+        "hivenestkwt:equipbee",
         "hivenestkwt:lowdmg",
-        "hivenestkwt:sticky",
+        "hivenestkwt:waggle",
         "hivenestkwt:beelocation",
-        "hivenestkwt:smoke"
+        "hivenestkwt:sticky",
+        "hivenestkwt:dupeflower",
+        "hivenestkwt:equipflower",
+        "hivenestkwt:smoke",
+        "hivenestkwt:anger",
+        "hivenestkwt:startbees"
     ],
     "icon": {
         "item": "minecraft:bee_nest"

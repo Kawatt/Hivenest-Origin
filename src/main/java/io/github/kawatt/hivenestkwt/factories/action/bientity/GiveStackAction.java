@@ -14,7 +14,6 @@ import net.minecraft.util.Pair;
 import java.util.Set;
 
 import static io.github.apace100.apoli.util.InventoryUtil.*;
-import static io.github.kawatt.hivenestkwt.Hivenest.LOGGER;
 
 public class GiveStackAction {
 
@@ -40,7 +39,6 @@ public class GiveStackAction {
             if (stack == null) {
                 return;
             }
-            LOGGER.info("Gathered: {}", stack);
             data.set("slot", data.get("target_slot"));
             data.set("stack", stack);
         }

@@ -1,0 +1,29 @@
+{
+    "hidden": true,
+    "type": "apoli:action_on_callback",
+    "entity_action_gained": {
+        "type": "apoli:delay",
+        "ticks": 1,
+        "action": {
+            "type": "apoli:and",
+            "actions": [
+                {
+                    "type": "apoli:spawn_entity",
+                    "entity_type": "minecraft:bee",
+                    "bientity_action": {
+                        "type": "hivenestkwt:add_to_entity_storage",
+                        "storage": "*:beehive_storage"
+                    }
+                },
+                {
+                    "type": "apoli:spawn_entity",
+                    "entity_type": "minecraft:bee",
+                    "bientity_action": {
+                        "type": "hivenestkwt:add_to_entity_storage",
+                        "storage": "*:beehive_storage"
+                    }
+                }
+            ]
+        }
+    }
+}
