@@ -146,11 +146,30 @@
 			]
 		},
 		"action_on_remove": {
-			"type": "apoli:actor_action",
-			"action": {
-				"type": "apoli:play_sound",
-				"sound": "minecraft:block.beehive.exit"
-			}
+			"type": "apoli:and",
+			"actions": [
+				{
+					"type": "apoli:actor_action",
+					"action": {
+						"type": "apoli:play_sound",
+						"sound": "minecraft:block.beehive.exit"
+					}
+				},
+				{
+					"type": "apoli:if_else",
+					"condition": {
+						"type": "apoli:actor_condition",
+						"condition": {
+							"type": "apoli:sneaking",
+							"inverted": true
+						}
+					},
+					"if_action":{
+						"type": "apoli:add_to_set",
+						"set": "*:recall_set"
+					}
+				}
+			]
 		}
 	},
 	"addto": {
