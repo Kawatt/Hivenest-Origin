@@ -76,7 +76,7 @@
             ]
         },
         "key": "key.origins.secondary_active",
-        "cooldown": 60,
+        "cooldown": 40,
         "hud_render": {
             "should_render": false
         }

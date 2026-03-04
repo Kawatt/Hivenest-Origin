@@ -27,7 +27,7 @@ public class BeeArmorModel {
         Set<Direction> directions = Set.of(Direction.NORTH, Direction.WEST, Direction.EAST, Direction.DOWN, Direction.UP);
         ModelPartData modelPartData = modelData.getRoot();
         ModelPartData modelPartData2 = modelPartData.addChild("bone", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 19.0F, 0.0F));
-        ModelPartData modelPartData3 = modelPartData2.addChild("body", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, -4.5F, -5.5F, 8.0F, 8.0F, 8.0F, directions), ModelTransform.NONE);
+        ModelPartData modelPartData3 = modelPartData2.addChild("body", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, -5.0F, -5.5F, 8.0F, 8.0F, 8.0F, directions), ModelTransform.NONE);
         modelPartData3.addChild("stinger", ModelPartBuilder.create(), ModelTransform.NONE);
         modelPartData3.addChild("left_antenna", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -2.0F, -5.0F));
         modelPartData3.addChild("right_antenna", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -2.0F, -5.0F));

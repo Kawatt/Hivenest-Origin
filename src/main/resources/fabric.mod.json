@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "hivenestkwt",
   "version": "${version}",
 
   "name": "Hivenest",
-  "description": "Apoli Addon that also adds the Hivenest origin",
+  "description": "Apoli Addon that also adds the Hivenest origin and some bee changes.",
   "authors": [
-    "Kawatt!"
+    "Kawatt"
   ],
   "contact": {
-    "homepage": "",
-    "sources": "",
-    "issues": ""
+    "homepage": "https://github.com/Kawatt",
+    "sources": "https://github.com/Kawatt/Hivenest-Origin",
+    "issues": "https://github.com/Kawatt/Hivenest-Origin/issues"
   },
 
   "license": "MIT",
