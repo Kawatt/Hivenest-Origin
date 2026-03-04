@@ -3,14 +3,11 @@ package io.github.kawatt.hivenestkwt.render;
 import io.github.kawatt.hivenestkwt.mixin.BeeEntityModelMixin;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.model.Model;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.BeeEntityModel;
-import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.FoxEntityModel;
 import net.minecraft.client.render.item.HeldItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
@@ -18,8 +15,6 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.RotationAxis;
-
-import java.lang.reflect.Field;
 
 @Environment(EnvType.CLIENT)
 public class BeeHeldItemFeatureRenderer extends FeatureRenderer<BeeEntity, BeeEntityModel<BeeEntity>> {

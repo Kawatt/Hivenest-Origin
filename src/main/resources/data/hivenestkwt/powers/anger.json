@@ -55,9 +55,7 @@
                             "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "apoli:damage",
-                                    "damage_type": "generic",
-                                    "amount": 0
+                                    "type": "hivenestkwt:anger_target"
                                 },
                                 {
                                     "type": "apoli:target_action",
@@ -139,9 +137,7 @@
                             "type": "apoli:and",
                             "actions": [
                                 {
-                                    "type": "apoli:damage",
-                                    "damage_type": "generic",
-                                    "amount": 0
+                                    "type": "hivenestkwt:anger_target"
                                 },
                                 {
                                     "type": "apoli:target_action",
