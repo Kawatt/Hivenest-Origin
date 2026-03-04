@@ -26,11 +26,8 @@ public class BeehiveBlockEntityMixin {
 
         modified.remove("ArmorDropChances");
         modified.remove("ArmorItems");
-        modified.remove("CanPickUpLoot");
         modified.remove("HandDropChances");
         modified.remove("HandItems");
-        modified.remove("LeftHanded");
-        modified.remove("NoGravity");
 
         IRRELEVANT_BEE_NBT_KEYS = modified;
     }

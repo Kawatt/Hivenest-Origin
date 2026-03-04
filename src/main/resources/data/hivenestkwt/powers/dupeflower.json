@@ -1,5 +1,5 @@
 {
     "name": "Expert Pollinator",
-    "description": "Picking up a bee with a flower in your offhand will duplicate said flower if the bee has pollinated any crops.",
+    "description": "Picking up a bee that has grown a crop will duplicate the flower in your offhand.",
     "type": "apoli:simple"
 }

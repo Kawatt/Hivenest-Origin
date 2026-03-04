@@ -1,6 +1,6 @@
 {
     "name": "Swarm Recall",
-    "description": "Call your bees towards your location. Bees liberated while sneaking will be instructed to not answer your calls.",
+    "description": "Call your bees towards your location. Recalling while sneaking will also store the bees, as many as you can fit. Bees released while sneaking will be instructed to not answer your calls.",
     "type": "apoli:multiple",
     "set": {
         "type": "apoli:entity_set"
@@ -15,6 +15,40 @@
                     "command": "tag @s add hivenestkwt.tp"
                 },
                 {
+                    "type": "apoli:if_else",
+                    "condition": {
+                        "type": "apoli:sneaking"
+                    },
+                    "if_action": {
+                        "type": "apoli:action_on_set",
+                        "limit": 6,
+                        "set": "*:*_set",
+                        "bientity_action": {
+                            "type": "hivenestkwt:add_to_entity_storage",
+                            "storage": "*:beehive_storage"
+                        },
+                        "bientity_condition": {
+                            "type": "apoli:and",
+                            "conditions": [
+                                {
+                                    "type": "apoli:distance",
+                                    "comparison": "<=",
+                                    "compare_to": 128
+                                },
+                                {
+                                    "type": "apoli:actor_condition",
+                                    "condition": {
+                                        "type": "hivenestkwt:entity_storage_size",
+                                        "storage": "*:beehive_storage",
+                                        "comparison": "<",
+                                        "compare_to": 6
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
                     "type": "apoli:action_on_set",
                     "set": "*:*_set",
                     "bientity_action": {
@@ -27,7 +61,7 @@
                     "bientity_condition": {
                         "type": "apoli:distance",
                         "comparison": "<=",
-                        "compare_to": 32
+                        "compare_to": 64
                     }
                 },
                 {

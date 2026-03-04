@@ -24,6 +24,11 @@
 		},
 		"phase_down_condition": {
 			"type": "apoli:sneaking"
+		},
+		"condition": {
+			"type": "apoli:gamemode",
+			"gamemode": "spectator",
+			"inverted": true
 		}
 	},
 	"vel": {

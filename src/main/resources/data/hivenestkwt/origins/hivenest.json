@@ -14,7 +14,8 @@
         "hivenestkwt:equipflower",
         "hivenestkwt:smoke",
         "hivenestkwt:anger",
-        "hivenestkwt:startbees"
+        "hivenestkwt:startbees",
+        "hivenestkwt:hud"
     ],
     "icon": {
         "item": "minecraft:bee_nest"

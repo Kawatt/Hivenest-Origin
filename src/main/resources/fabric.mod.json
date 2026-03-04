@@ -15,7 +15,7 @@
   },
 
   "license": "MIT",
-  "icon": "assets/hivenestkwt/icon.png",
+  "icon": "assets/hivenestkwt/pack.png",
   "environment": "*",
   "entrypoints": {
     "main": [

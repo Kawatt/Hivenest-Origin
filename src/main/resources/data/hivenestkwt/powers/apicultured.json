@@ -1,12 +1,12 @@
 {
     "name": "Apicultured",
-    "description": "Picking up bees with pollen will store it inside you. Overtime, pollen will be transformed into honey and wax.",
+    "description": "Picking up bees with nectar will store it inside you. Overtime, nectar will be transformed into honey.",
     "type": "apoli:multiple",
     "honey": {
         "type": "apoli:resource",
-        "start_value": 100,
+        "start_value": 200,
         "min": 0,
-        "max": 700,
+        "max": 1200,
         "hud_render": {
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
             "bar_index": 0
@@ -16,14 +16,14 @@
         "type": "apoli:resource",
         "start_value": 0,
         "min": 0,
-        "max": 700,
+        "max": 1200,
         "hud_render": {
             "bar_index": 0
         }
     },
     "fillhoney": {
         "type": "apoli:action_over_time",
-        "interval": 200,
+        "interval": 100,
         "entity_action": {
             "type": "apoli:and",
             "actions": [
@@ -51,8 +51,8 @@
                 {
                     "type": "apoli:resource",
                     "resource": "*:*_honey",
-                    "comparison": "!=",
-                    "compare_to": 700
+                    "comparison": "<",
+                    "compare_to": 1200
                 }
             ]
         }
@@ -62,7 +62,7 @@
         "entity_action": {
             "type": "apoli:change_resource",
             "resource": "*:*_honey",
-            "change": 10
+            "change": 150
         },
         "item_condition": {
             "type": "apoli:ingredient",
@@ -80,7 +80,22 @@
             "type": "apoli:resource",
             "resource": "*:*_honey",
             "comparison": ">=",
-            "compare_to": 500
+            "compare_to": 800
+        }
+    },
+    "callback": {
+        "type": "apoli:action_on_callback",
+        "entity_action_respawned": {
+            "type": "apoli:change_resource",
+            "resource": "*:*_honey",
+            "operation": "set",
+            "change": 200
+        },
+        "condition": {
+            "type": "apoli:resource",
+            "resource": "*:*_honey",
+            "comparison": "<",
+            "compare_to": 200
         }
     }
 }

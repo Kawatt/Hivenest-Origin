@@ -1,6 +1,6 @@
 {
 	"name": "Bee Nest",
-	"description": "You can pick up and store up to 6 bees. Picking up bees restores their health at the cost of honey if below half health.",
+	"description": "You can pick up and store up to 6 bees. You start with two. Picking up bees restores their health at the cost of honey if below half health.",
 	"type": "apoli:multiple",
 	"storage": {
 		"type": "hivenestkwt:entity_storage",
@@ -33,7 +33,7 @@
 									"type": "apoli:resource",
 									"resource": "*:apicultured_honey",
 									"comparison": ">=",
-									"compare_to": 10
+									"compare_to": 60
 								}
 							}
 						]
@@ -46,7 +46,7 @@
 								"action": {
 									"type": "apoli:change_resource",
 									"resource": "*:apicultured_honey",
-									"change": -10
+									"change": -60
 								}
 							},
 							{
@@ -78,7 +78,7 @@
 								"action": {
 									"type": "apoli:change_resource",
 									"resource": "*:apicultured_pollen",
-									"change": 10
+									"change": 30
 								}
 							},
 							{

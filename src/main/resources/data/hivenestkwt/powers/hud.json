@@ -1,0 +1,55 @@
+{
+    "hidden": true,
+    "type": "apoli:status_bar_texture",
+    "texture_map": {
+        "minecraft:hud/heart/full": "hivenestkwt:hud/heart/full",
+        "minecraft:hud/heart/full_blinking": "hivenestkwt:hud/heart/full_blinking",
+        "minecraft:hud/heart/hardcore_full": "hivenestkwt:hud/heart/hardcore_full",
+        "minecraft:hud/heart/hardcore_full_blinking": "hivenestkwt:hud/heart/hardcore_full_blinking",
+        "minecraft:hud/heart/half": "hivenestkwt:hud/heart/half",
+        "minecraft:hud/heart/half_blinking": "hivenestkwt:hud/heart/half_blinking",
+        "minecraft:hud/heart/hardcore_half": "hivenestkwt:hud/heart/hardcore_half",
+        "minecraft:hud/heart/hardcore_half_blinking": "hivenestkwt:hud/heart/hardcore_half_blinking",
+
+        "minecraft:hud/heart/absorbing_full": "hivenestkwt:hud/heart/absorbing_full",
+        "minecraft:hud/heart/absorbing_full_blinking": "hivenestkwt:hud/heart/absorbing_full_blinking",
+        "minecraft:hud/heart/absorbing_hardcore_full": "hivenestkwt:hud/heart/absorbing_hardcore_full",
+        "minecraft:hud/heart/absorbing_hardcore_full_blinking": "hivenestkwt:hud/heart/absorbing_hardcore_full_blinking",
+        "minecraft:hud/heart/absorbing_half": "hivenestkwt:hud/heart/absorbing_half",
+        "minecraft:hud/heart/absorbing_half_blinking": "hivenestkwt:hud/heart/absorbing_half_blinking",
+        "minecraft:hud/heart/absorbing_hardcore_half": "hivenestkwt:hud/heart/absorbing_hardcore_half",
+        "minecraft:hud/heart/absorbing_hardcore_half_blinking": "hivenestkwt:hud/heart/absorbing_hardcore_half_blinking",
+
+        "minecraft:hud/heart/poisoned_full": "hivenestkwt:hud/heart/poisoned_full",
+        "minecraft:hud/heart/poisoned_full_blinking": "hivenestkwt:hud/heart/poisoned_full_blinking",
+        "minecraft:hud/heart/poisoned_hardcore_full": "hivenestkwt:hud/heart/poisoned_hardcore_full",
+        "minecraft:hud/heart/poisoned_hardcore_full_blinking": "hivenestkwt:hud/heart/poisoned_hardcore_full_blinking",
+        "minecraft:hud/heart/poisoned_half": "hivenestkwt:hud/heart/poisoned_half",
+        "minecraft:hud/heart/poisoned_half_blinking": "hivenestkwt:hud/heart/poisoned_half_blinking",
+        "minecraft:hud/heart/poisoned_hardcore_half": "hivenestkwt:hud/heart/poisoned_hardcore_half",
+        "minecraft:hud/heart/poisoned_hardcore_half_blinking": "hivenestkwt:hud/heart/poisoned_hardcore_half_blinking",
+
+        "minecraft:hud/heart/withered_full": "hivenestkwt:hud/heart/withered_full",
+        "minecraft:hud/heart/withered_full_blinking": "hivenestkwt:hud/heart/withered_full_blinking",
+        "minecraft:hud/heart/withered_hardcore_full": "hivenestkwt:hud/heart/withered_hardcore_full",
+        "minecraft:hud/heart/withered_hardcore_full_blinking": "hivenestkwt:hud/heart/withered_hardcore_full_blinking",
+        "minecraft:hud/heart/withered_half": "hivenestkwt:hud/heart/withered_half",
+        "minecraft:hud/heart/withered_half_blinking": "hivenestkwt:hud/heart/withered_half_blinking",
+        "minecraft:hud/heart/withered_hardcore_half": "hivenestkwt:hud/heart/withered_hardcore_half",
+        "minecraft:hud/heart/withered_hardcore_half_blinking": "hivenestkwt:hud/heart/withered_hardcore_half_blinking",
+
+        "minecraft:hud/heart/frozen_full": "hivenestkwt:hud/heart/frozen_full",
+        "minecraft:hud/heart/frozen_full_blinking": "hivenestkwt:hud/heart/frozen_full_blinking",
+        "minecraft:hud/heart/frozen_hardcore_full": "hivenestkwt:hud/heart/frozen_hardcore_full",
+        "minecraft:hud/heart/frozen_hardcore_full_blinking": "hivenestkwt:hud/heart/frozen_hardcore_full_blinking",
+        "minecraft:hud/heart/frozen_half": "hivenestkwt:hud/heart/frozen_half",
+        "minecraft:hud/heart/frozen_half_blinking": "hivenestkwt:hud/heart/frozen_half_blinking",
+        "minecraft:hud/heart/frozen_hardcore_half": "hivenestkwt:hud/heart/frozen_hardcore_half",
+        "minecraft:hud/heart/frozen_hardcore_half_blinking": "hivenestkwt:hud/heart/frozen_hardcore_half_blinking",
+
+        "minecraft:hud/food_full": "hivenestkwt:hud/food_full",
+        "minecraft:hud/food_full_hunger": "hivenestkwt:hud/food_full_hunger",
+        "minecraft:hud/food_half": "hivenestkwt:hud/food_half",
+        "minecraft:hud/food_half_hunger": "hivenestkwt:hud/food_half_hunger"
+    }
+}

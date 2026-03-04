@@ -1,6 +1,6 @@
 {
 	"name": "Beelocation",
-	"description": "Interact with a beehive to force the bees out.",
+	"description": "Interact with a beehive while sneaking to force the bees out.",
 	"type": "apoli:action_on_block_use",
 	"block_action": {
 		"type": "hivenestkwt:spawn_all_from_beehive"
