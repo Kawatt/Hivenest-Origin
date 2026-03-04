@@ -8,7 +8,7 @@
         "min": 0,
         "max": 1200,
         "hud_render": {
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "sprite_location": "hivenestkwt:textures/gui/resource_bars/resource_bar_01.png",
             "bar_index": 0
         }
     },
@@ -18,7 +18,8 @@
         "min": 0,
         "max": 1200,
         "hud_render": {
-            "bar_index": 0
+            "sprite_location": "hivenestkwt:textures/gui/resource_bars/resource_bar_01.png",
+            "bar_index": 1
         }
     },
     "fillhoney": {

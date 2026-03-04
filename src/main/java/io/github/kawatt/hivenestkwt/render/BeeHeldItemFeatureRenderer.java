@@ -1,12 +1,16 @@
 package io.github.kawatt.hivenestkwt.render;
 
+import io.github.kawatt.hivenestkwt.mixin.BeeEntityModelMixin;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.model.Model;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.BeeEntityModel;
+import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.client.render.entity.model.FoxEntityModel;
 import net.minecraft.client.render.item.HeldItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
@@ -37,24 +41,18 @@ public class BeeHeldItemFeatureRenderer extends FeatureRenderer<BeeEntity, BeeEn
 
         matrices.push();
 
-        //matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(90.0F));
-
-        // Cambiar a un extensor de BeeEntityModel
-        ModelPart bone = null;
-        try {
-            Field boneField = BeeEntityModel.class.getDeclaredField("bone");
-            boneField.setAccessible(true);
-            bone = (ModelPart) boneField.get(this.getContextModel());
-        } catch (Exception e) {
-            e.printStackTrace();
+        ModelPart bone = ((BeeEntityModelMixin) this.getContextModel()).getBone();
+        bone.rotate(matrices);
+        if (bee.isBaby()) {
+            matrices.translate(0f,0.09f,0.2f);
+            matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(80));
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180));
+            matrices.scale(0.5f, 0.5f, 0.5f);
+        } else {
+            matrices.translate(0f,-0.15f,0.3f);
+            matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(80));
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180));
         }
-
-        if (bone != null) {
-            matrices.translate(bone.pivotX / 16.0F, (bone.pivotY - 2.6F) / 16.0F, (bone.pivotZ + 5.0F) / 16.0F);
-        }
-        matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(85));
-        matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180));
-        matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(0));
         heldItemRenderer.renderItem(bee, stack, ModelTransformationMode.THIRD_PERSON_RIGHT_HAND, false, matrices, vertexConsumers, light);
 
         matrices.pop();

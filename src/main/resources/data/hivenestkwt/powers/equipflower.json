@@ -2,6 +2,9 @@
 	"name": "Sweet Nectar",
 	"description": "Giving a bee flowers while sneaking will make them hold them. When the bee gets hit, they will consume the flower to gain potion effects.",
 	"type": "apoli:action_on_entity_use",
+	"hands": [
+		"main_hand"
+	],
 	"bientity_action": {
 		"type": "apoli:and",
 		"actions": [

@@ -16,6 +16,11 @@
 					"compare_to": 32
 				},
 				{
+					"type": "apoli:distance",
+					"comparison": ">",
+					"compare_to": 6
+				},
+				{
 					"type": "apoli:target_condition",
 					"condition": {
 						"type": "apoli:and",

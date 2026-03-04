@@ -4,6 +4,9 @@
 	"type": "apoli:multiple",
 	"equiphelmet": {
 		"type": "apoli:action_on_entity_use",
+		"hands": [
+			"main_hand"
+		],
 		"bientity_action": {
 			"type": "apoli:and",
 			"actions": [
@@ -54,6 +57,9 @@
 	},
 	"equipweapon": {
 		"type": "apoli:action_on_entity_use",
+		"hands": [
+			"main_hand"
+		],
 		"bientity_action": {
 			"type": "apoli:and",
 			"actions": [
@@ -111,6 +117,9 @@
 	},
 	"unequip": {
 		"type": "apoli:action_on_entity_use",
+		"hands": [
+			"main_hand"
+		],
 		"bientity_action": {
 			"type": "apoli:and",
 			"actions": [

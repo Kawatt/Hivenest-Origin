@@ -15,6 +15,13 @@
 					}
 				},
 				{
+					"type": "apoli:actor_action",
+					"action": {
+						"type": "origins:emit_game_event",
+						"event": "minecraft:block_change"
+					}
+				},
+				{
 					"type": "apoli:if_else",
 					"condition": {
 						"type": "apoli:and",
@@ -156,6 +163,13 @@
 					}
 				},
 				{
+					"type": "apoli:actor_action",
+					"action": {
+						"type": "origins:emit_game_event",
+						"event": "minecraft:block_change"
+					}
+				},
+				{
 					"type": "apoli:if_else",
 					"condition": {
 						"type": "apoli:actor_condition",
@@ -174,6 +188,9 @@
 	},
 	"addto": {
 		"type": "apoli:action_on_entity_use",
+		"hands": [
+			"main_hand"
+		],
 		"bientity_action": {
 			"type": "apoli:if_else",
 			"condition": {
@@ -190,12 +207,32 @@
 				"storage": "*:*_storage"
 			},
 			"else_action": {
-				"type": "apoli:actor_action",
-				"action": {
-					"type": "apoli:play_sound",
-					"sound": "block.beehive.enter",
-					"pitch": 2
-				}
+				"type": "apoli:and",
+				"actions": [
+					{
+						"type": "apoli:if_else",
+						"condition": {
+							"type": "apoli:in_set",
+							"set": "*:recall_set"
+						},
+						"if_action": {
+							"type": "apoli:remove_from_set",
+							"set": "*:recall_set"
+						},
+						"else_action": {
+							"type": "apoli:add_to_set",
+							"set": "*:recall_set"
+						}
+					},
+					{
+						"type": "apoli:actor_action",
+						"action": {
+							"type": "apoli:play_sound",
+							"sound": "block.beehive.enter",
+							"pitch": 2
+						}
+					}
+				]
 			}
 		},
 		"bientity_condition": {
